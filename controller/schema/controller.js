@@ -1,4 +1,4 @@
-const { createSchema, cronJobUpDate } = require("./util");
+const { createSchema } = require("./util");
 
 const CreateSchema = async (req, res) => {
   try {
@@ -10,17 +10,6 @@ const CreateSchema = async (req, res) => {
   }
 };
 
-const CreateCronJob = async (req, res) => {
-  try {
-    const { id } = req.query;
-    const resp = await cronJobUpDate(id);
-    return res.status(200).send("cron job intialized");
-  } catch (e) {
-    return res.status(500).send(e);
-  }
-};
-
 module.exports = {
   CreateSchema,
-  CreateCronJob,
 };
